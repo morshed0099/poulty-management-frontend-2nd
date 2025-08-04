@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-const layout = () => {
+const Layout = () => {
   return (
     <div>
       <div className="drawer">
@@ -54,25 +54,25 @@ const layout = () => {
                 <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/farmer">All Farmer</NavLink>
                 </li>
-              <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/employee">All Employee</NavLink>
                 </li>
                 <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/flock">All Flock</NavLink>
                 </li>
-              <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/flock-report">All Flock Repot</NavLink>
                 </li>
-               <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/branch">All Branch</NavLink>
                 </li>
-              <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/create-branch">Create Branch</NavLink>
                 </li>
-               <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/create-farmer">Create Farmer</NavLink>
                 </li>
-             <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/create-employee">Create Employee</NavLink>
                 </li>
               </ul>
@@ -137,4 +137,4 @@ const layout = () => {
   );
 };
 
-export default layout;
+export default Layout;

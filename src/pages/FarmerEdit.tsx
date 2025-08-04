@@ -5,15 +5,17 @@ import {
 } from "../redux/features/farmer/farmerApi";
 import { useState } from "react";
 import { useAllbranceQuery } from "../redux/features/brance/branceApi";
+import toast from "react-hot-toast";
+import { Tbrance } from "./Allbrance";
 
 const FarmerEdit = () => {
   const { id } = useParams();
   const { data: farmer } = useSingeleFarmerQuery(id);
   const { data } = useAllbranceQuery(undefined);
-  const [updateFarmer, {}] = useUpdateFarmerMutation();
+  const [updateFarmer] = useUpdateFarmerMutation();
 
-  const [branchCode, setBranchCode] = useState();
-  const [farmType, setFarmType] = useState();
+  const [branchCode, setBranchCode] = useState<string | null>();
+  const [farmType, setFarmType] = useState<string | null>();
 
   console.log(farmer);
 
@@ -56,8 +58,8 @@ const FarmerEdit = () => {
       },
     };
     try {
-      const result = await updateFarmer(farmerData);
-      console.log(result);
+      await updateFarmer(farmerData);
+      toast.success("farmer updated successfully !!");
     } catch (error) {
       console.log(error);
     }
@@ -94,7 +96,7 @@ const FarmerEdit = () => {
                 >
                   {farmer?.data?.farmer.branchCode}
                 </option>
-                {data?.data.map((option: any) => (
+                {data?.data.map((option: Tbrance) => (
                   <option>{option.branchCode}</option>
                 ))}
               </select>

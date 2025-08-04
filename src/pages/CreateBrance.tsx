@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCreateBranchMutation } from "../redux/features/brance/branceApi";
+import toast from "react-hot-toast";
 
 const CreateBrance = () => {
   const navigate = useNavigate();
@@ -22,9 +23,7 @@ const CreateBrance = () => {
     try {
       await createBranch(branceInfo).unwrap();
       form.reset();
-
-      // Optionally navigate or show success message
-      alert("Branch created successfully!");
+      toast.success("branch created successfully !!");
       navigate("/branch");
     } catch (error) {
       console.log(error);

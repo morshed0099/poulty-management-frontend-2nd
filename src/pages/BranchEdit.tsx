@@ -3,12 +3,13 @@ import {
   useGetSingleBranchQuery,
   useUpdateBranceMutation,
 } from "../redux/features/brance/branceApi";
+import toast from "react-hot-toast";
 
 const BranchEdit = () => {
   const { id } = useParams();
 
   const { data } = useGetSingleBranchQuery({ id });
-  const [updateBranch, { data: update }] = useUpdateBranceMutation();
+  const [updateBranch] = useUpdateBranceMutation();
 
   const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,8 +20,12 @@ const BranchEdit = () => {
       branchCode: from.branchCode.value,
       id,
     };
-    await updateBranch(updateData).unwrap();
-    console.log(update);
+    try {
+      await updateBranch(updateData).unwrap();
+      toast.success("branch updated successfully !!");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useCreateEmployeeMutation } from "../redux/features/employee/employeeApi";
+import toast from "react-hot-toast";
 
 const CreateEmpolyee = () => {
+  const [createEmployee] = useCreateEmployeeMutation();
   const [designation, setDesignation] = useState("");
 
-  const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const from = e.currentTarget;
     const createDate = from.createDate.value;
@@ -33,8 +36,14 @@ const CreateEmpolyee = () => {
         distic,
       },
     };
-
-    console.log(employeeData);
+    try {
+      const result = await createEmployee(employeeData).unwrap();
+      console.log(result);
+      toast.success("employee created successfully !!");
+      from.reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

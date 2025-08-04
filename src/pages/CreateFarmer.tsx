@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useAllbranceQuery } from "../redux/features/brance/branceApi";
 import { useCreateFarmerMutation } from "../redux/features/farmer/farmerApi";
+import toast from "react-hot-toast";
+import { TBrance } from "../type";
 
 const CreateFarmer = () => {
   // all branch retive for  selecet branch code
@@ -10,13 +12,11 @@ const CreateFarmer = () => {
   const [branchCode, setBranchCode] = useState("");
   const [farmType, setFarmType] = useState("Both");
 
-
   const handelSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const from = e.currentTarget;
     const createDate = from.createDate.value;
     const name = from.farmar.value;
-    console.log(name);
     const phoneNumber = e.currentTarget.phoneNumber.value;
     const sheed = parseInt(e.currentTarget.sheed.value);
     const capacity = parseInt(e.currentTarget.capacity.value);
@@ -49,10 +49,9 @@ const CreateFarmer = () => {
       },
     };
     try {
-      const result = await createFarmer(farmerData).unwrap();
-      console.log(result);
-
-      alert("farmer created success fully");
+      await createFarmer(farmerData).unwrap();
+      toast.success("farmer created successfully !!!");
+      from.reset();
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +75,7 @@ const CreateFarmer = () => {
                 onChange={(e) => setBranchCode(e.target.value)}
                 className="select"
               >
-                {data?.data.map((option: any) => (
+                {data?.data.map((option: TBrance) => (
                   <option className="option">{option.branchCode}</option>
                 ))}
               </select>
