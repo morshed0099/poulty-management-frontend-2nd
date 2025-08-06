@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { TEmployee } from "../type";
 
 const EmployeTBody = ({ employe }: { employe: TEmployee }) => {
@@ -16,9 +17,9 @@ const EmployeTBody = ({ employe }: { employe: TEmployee }) => {
         <td>{employe.address.upazila}</td>
         <td>{employe.address.distic}</td>
 
-        {/* <Link to={`/branch/${brance.id}`}>
+        <Link to={`/employee/${employe.id}`}>
           <button className="btn btn-primary btn-sm mr-0.5">Edit</button>
-        </Link> */}
+        </Link>
         <button className="btn btn-secondary btn-sm">Delete</button>
       </tr>
     </tbody>

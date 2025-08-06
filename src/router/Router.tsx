@@ -11,6 +11,9 @@ import BranchEdit from "../pages/BranchEdit";
 import CreateFarmer from "../pages/CreateFarmer";
 import CreateEmpolyee from "../pages/CreateEmpolyee";
 import FarmerEdit from "../pages/FarmerEdit";
+import EditEmployee from "../pages/EditEmployee";
+import EmployeePosting from "../pages/EmployeePosting";
+import TransferEmply from "../pages/TransferEmply";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/employee",
         element: <AllEmployees />,
+      },
+      {
+        path: "/employee/:id",
+        element: <EditEmployee />,
       },
       {
         path: "/create-employee",
@@ -60,6 +67,14 @@ export const router = createBrowserRouter([
       {
         path: "/create-farmer",
         element: <CreateFarmer />,
+      },
+      {
+        path: "/branch-employee",
+        element: <EmployeePosting />,
+      },
+      {
+        path: "/transfer-employe",
+        element: <TransferEmply />,
       },
     ],
   },

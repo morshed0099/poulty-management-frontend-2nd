@@ -75,6 +75,12 @@ const Layout = () => {
                 <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
                   <NavLink to="/create-employee">Create Employee</NavLink>
                 </li>
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                  <NavLink to="/branch-employee">Employee Posting</NavLink>
+                </li>
+                <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+                  <NavLink to="/transfer-employe">Employee Transfer</NavLink>
+                </li>
               </ul>
             </div>
           </div>
@@ -129,6 +135,12 @@ const Layout = () => {
             </li>
             <li>
               <NavLink to="/create-employee">Create Employee</NavLink>
+            </li>
+            <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+              <NavLink to="/branch-employee">Employee Posting</NavLink>
+            </li>
+            <li className="text-white  p-2 rounded-bl-2xl rounded-tl-2xl">
+              <NavLink to="/transfer-employe">Employee Transfer</NavLink>
             </li>
           </ul>
         </div>
